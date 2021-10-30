@@ -8,11 +8,20 @@ public class Healer extends Hero{
         this.fisicalDamage = fisicalDamage;
         this.healPower = healPower;
     }
-    void heal(Hero hero){
-        hero.leavePoints += 10;
+    public Healer(){}
+    public void heal(Hero hero){
+        hero.leavePoints += healPower;
+    }
+    public void heal(){ super.leavePoints += healPower;}
+    public void attack(Hero hero){
+        hero.leavePoints -= fisicalDamage;
     }
     @Override
-    void infoAboutHero(){
+    public void attack(Animal animal){
+        animal.healthPoints -= fisicalDamage;
+    }
+    @Override
+    public void info(){
         System.out.println("type: healer");
         System.out.println("level: "+level);
         System.out.println("leave points: "+leavePoints);

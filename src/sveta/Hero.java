@@ -1,14 +1,10 @@
 package sveta;
 
-abstract public class Hero implements sveta.Trainee {
+abstract public class Hero implements Trainee, Info {
     public int leavePoints;
     public int level;
     public int fisicalDamage;
-    /*
-    public void Hero(int leavePoints, int level, int fisicalDamage){
 
-    }
-    */
-    abstract void infoAboutHero();
-
+    public abstract void attack(Hero hero);
+    public void attack(Animal animal);
 }

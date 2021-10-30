@@ -1,5 +1,5 @@
 package sveta;
-public class Warrior extends sveta.Hero {
+public class Warrior extends Hero {
     int multiplicleFisicalDamage;
 
     public Warrior(int level, int leavePoints, int fisicalDamage, int multiplicleFisicalDamage) {
@@ -9,15 +9,17 @@ public class Warrior extends sveta.Hero {
         this.fisicalDamage = fisicalDamage;
     }
 
+    public Warrior(){}
+
     void strongHit(sveta.Hero hero){
         hero.leavePoints -= 30;
     }
     @Override
-    void infoAboutHero(){
+    public void info(){
         System.out.println("type: warrior");
         System.out.println("level: "+level);
         System.out.println("leave points: "+leavePoints);
-        System.out.println("fisical damage: "+fisicalDamage*multiplicleFisicalDamage);
+        System.out.println("fisical damage: "+fisicalDamage);
         System.out.println("multiplicle fisical damage: "+multiplicleFisicalDamage);
     }
 
@@ -29,5 +31,14 @@ public class Warrior extends sveta.Hero {
             multiplicleFisicalDamage+=1;
         }
         fisicalDamage+=1;
+    }
+
+    @Override
+    public void attack(Hero hero) {
+        hero.leavePoints -= fisicalDamage*multiplicleFisicalDamage;
+    }
+    @Override
+    public void attack(Animal animal){
+        animal.healthPoints -= fisicalDamage*multiplicleFisicalDamage;
     }
 }

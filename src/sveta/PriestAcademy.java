@@ -2,6 +2,6 @@ package sveta;
 
 public class PriestAcademy {
     void teach(Trainee trainee){
-        if (trainee instanceof sveta.Healer){trainee.train();}
+        if (trainee instanceof Healer){trainee.train();}
     }
 }

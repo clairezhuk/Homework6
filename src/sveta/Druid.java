@@ -1,15 +1,16 @@
 package sveta;
 
-public class Druid extends sveta.Healer {
+public class Druid extends Healer {
     sveta.Animal animal = new sveta.Animal();
     public Druid(int level, int leavePoints, int fisicalDamage, int healPower){
         super(level,leavePoints,fisicalDamage,healPower);
     }
+    public Druid(){}
     void tameAnimal(sveta.Animal animal){
         this.animal = animal;
     }
     @Override
-    void infoAboutHero(){
+    public void info(){
         System.out.println("type: druid");
         System.out.println("level: "+level);
         System.out.println("leave points: "+leavePoints);

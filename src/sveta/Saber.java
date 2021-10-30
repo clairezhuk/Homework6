@@ -1,4 +1,4 @@
 package sveta;
 
-final public class Saber extends sveta.Sword {
+final public class Saber extends Sword {
 }
