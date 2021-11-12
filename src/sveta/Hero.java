@@ -6,5 +6,5 @@ abstract public class Hero implements Trainee, Info {
     public int fisicalDamage;
 
     public abstract void attack(Hero hero);
-    public void attack(Animal animal);
+    public abstract void attack(Animal animal);
 }

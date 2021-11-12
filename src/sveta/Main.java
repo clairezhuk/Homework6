@@ -3,38 +3,62 @@ package sveta;
 public class Main {
 
     public static void main(String[] args) {
-        Warrior hero1 = new Warrior(1,30,1,1);
-        Druid hero2 = new Druid(1,30,1,1);
-        sveta.Academy universalAcademy = new sveta.Academy();
-        WarriorAcademy warriorAcademy = new WarriorAcademy();
-        sveta.PriestAcademy priestAcademy = new sveta.PriestAcademy();
-        System.out.println("START INFO:");
-        hero1.infoAboutHero();
+        Druid druid = new Druid(3,50,20,10);
+        Animal animal = new Animal("Wolf",50,30);
+        Warrior warrior = new Warrior(2,40,20,2);
+        Magician magician = new Magician(5,70,20,40);
+        DarkMagician darkMagician = new DarkMagician(1,30,10,20);
+        druid.tameAnimal(animal);
+        druid.info();
         System.out.println();
-        hero2.infoAboutHero();
+        warrior.info();
         System.out.println();
+        magician.info();
+        System.out.println();
+        darkMagician.info();
+        System.out.println();
+        System.out.println("________________________");
 
-        System.out.println("AFTER UNIVERSAL ACADEMY:");
-        universalAcademy.teach(hero1);
-        universalAcademy.teach(hero2);
-        hero1.infoAboutHero();
+        warrior.attack(magician);
+        druid.attack(darkMagician);
+        magician.attack(druid);
+        darkMagician.magicAttack(warrior);
+        druid.info();
         System.out.println();
-        hero2.infoAboutHero();
+        warrior.info();
         System.out.println();
+        magician.info();
+        System.out.println();
+        darkMagician.info();
+        System.out.println();
+        System.out.println("________________________");
 
-        System.out.println("AFTER WARRIOR ACADEMY:");
-        warriorAcademy.teach(hero1);
-        warriorAcademy.teach(hero2);
-        hero1.infoAboutHero();
+        animal.attackLikeAnimal(magician);
+        darkMagician.darkMagicAttack(animal);
+        magician.magicAttack(warrior);
+        druid.heal();
+        warrior.strongHit(magician);
+        druid.info();
         System.out.println();
-        hero2.infoAboutHero();
+        warrior.info();
         System.out.println();
+        magician.info();
+        System.out.println();
+        darkMagician.info();
+        System.out.println();
+        System.out.println("________________________");
 
-        System.out.println("AFTER PRIEST ACADEMY:");
-        priestAcademy.teach(hero1);
-        priestAcademy.teach(hero2);
-        hero1.infoAboutHero();
+        druid.heal();
+        darkMagician.darkMagicAttack(druid);
+        druid.attack(magician);
+        druid.info();
         System.out.println();
-        hero2.infoAboutHero();
+        warrior.info();
+        System.out.println();
+        magician.info();
+        System.out.println();
+        darkMagician.info();
+        System.out.println();
+        System.out.println("________________________");
     }
 }

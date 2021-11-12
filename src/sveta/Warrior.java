@@ -11,34 +11,49 @@ public class Warrior extends Hero {
 
     public Warrior(){}
 
-    void strongHit(sveta.Hero hero){
-        hero.leavePoints -= 30;
+    void strongHit(Hero hero){
+
+        if (leavePoints>0){hero.leavePoints -= fisicalDamage*multiplicleFisicalDamage;}
+    }
+    void strongHit(Animal animal){
+        if (leavePoints>0) animal.healthPoints -= fisicalDamage*multiplicleFisicalDamage;
     }
     @Override
     public void info(){
         System.out.println("type: warrior");
-        System.out.println("level: "+level);
-        System.out.println("leave points: "+leavePoints);
-        System.out.println("fisical damage: "+fisicalDamage);
-        System.out.println("multiplicle fisical damage: "+multiplicleFisicalDamage);
+        if (leavePoints>0) {
+            System.out.println("level: " + level);
+            System.out.println("leave points: " + leavePoints);
+            System.out.println("fisical damage: " + fisicalDamage);
+            System.out.println("multiplicle fisical damage: " + multiplicleFisicalDamage);
+        }
+        else {
+            System.out.println("Is dead");
+        }
     }
 
     @Override
     public void train() {
-        this.level += 1;
-        if (level % 3 == 0) {
-            leavePoints+=10;
-            multiplicleFisicalDamage+=1;
+        if (leavePoints>0) {
+            this.level += 1;
+            if (level % 3 == 0) {
+                leavePoints += 10;
+                multiplicleFisicalDamage += 1;
+            }
+            fisicalDamage += 1;
         }
-        fisicalDamage+=1;
     }
 
     @Override
     public void attack(Hero hero) {
-        hero.leavePoints -= fisicalDamage*multiplicleFisicalDamage;
+        if (leavePoints>0) {
+            hero.leavePoints -= fisicalDamage;
+        }
     }
     @Override
     public void attack(Animal animal){
-        animal.healthPoints -= fisicalDamage*multiplicleFisicalDamage;
+        if (leavePoints>0) {
+            animal.healthPoints -= fisicalDamage;
+        }
     }
 }

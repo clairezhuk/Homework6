@@ -12,9 +12,16 @@ public class Cossack extends Warrior {
     @Override
     public void info(){
         System.out.println("type: cossack");
-        System.out.println("level: "+level);
-        System.out.println("leave points: "+leavePoints);
-        System.out.println("fisical damage: "+fisicalDamage);
-        if (saber.name != null) {System.out.println("saber: "+saber.name);}
+        if (leavePoints>0) {
+            System.out.println("level: " + level);
+            System.out.println("leave points: " + leavePoints);
+            System.out.println("fisical damage: " + fisicalDamage);
+            if (saber.name != null) {
+                System.out.println("saber: " + saber.name);
+            }
+        }
+        else {
+            System.out.println("Is dead");
+        }
     }
 }
